@@ -2,10 +2,6 @@
 
 A tool that automatically adds furigana (reading guides) to Japanese text by aligning hiragana readings with kanji characters using diff algorithms to generate HTML ruby markup.
 
-## About
-
-Furigana Sewer uses Longest Common Subsequence (LCS) algorithms to intelligently match hiragana readings with their corresponding kanji characters, then generates proper HTML `<ruby>` tags with `<rt>` annotations for web display. This approach handles complex Japanese text structures including mixed hiragana, katakana, and kanji combinations.
-
 ## Example
 
 Input:
@@ -20,3 +16,7 @@ Input:
 
 Output:
 ![after](after.png)
+
+## About
+
+Furigana Sewer uses Longest Common Subsequence (LCS) algorithms to intelligently match hiragana readings with their corresponding kanji characters, then generates proper HTML `<ruby>` tags with `<rt>` annotations for web display. This approach handles complex Japanese text structures including mixed hiragana, katakana, and kanji combinations.
