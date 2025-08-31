@@ -1,3 +1,4 @@
+// <p id=ruby></p>
 function findLCS(s1, s2) {
     const n = s1.length;
     const m = s2.length;
@@ -37,18 +38,17 @@ function getDiff(s1, s2) {
     return diff;
 };
 
-function furiganaSewer(reading, experssion){
-    getDiff(reading, experssion)
+function furiganaSewer(reading, experssion) {
+    return getDiff(experssion, reading)
         .reduce((acc, { type, value }) => (acc.at(-1)?.type === type ? acc.at(-1).value += value : acc.push({ type, value }), acc), [])
-    
-        .reduce((acc, { type, value }) => (acc.at(-1)?.type === 'deleted' && type === 'added' ? acc.at(-1).value = `<ruby>${value}<rt>${acc.at(-1).value}</rt></ruby>` : acc.push({ type, value }), acc), [])
-    
+
+        .reduce((acc, { type, value }) => (acc.at(-1)?.type === 'deleted' && type === 'added' ? acc.at(-1).value = `<ruby>${acc.at(-1).value}<rt>${value}</rt></ruby>` : acc.push({ type, value }), acc), [])
+
         .map(({ type, value }) => ({
             added: '' + value,
             common: value,
             deleted: '' + value
         })[type])
         .join(' ')
-    
 }
 document.querySelector('#ruby').innerHTML = furiganaSewer(`{{Reading}}`, `{{Expression}}`)
